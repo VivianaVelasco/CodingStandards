@@ -1,3 +1,1 @@
-src/main/java/taller1/VacationPackage.java:95:	LiteralsFirstInComparisons:	LiteralsFirstInComparisons: Position literals first in String comparisons
-src/main/java/taller1/VacationPackage.java:95:	LiteralsFirstInComparisons:	LiteralsFirstInComparisons: Position literals first in String comparisons
 src/main/java/taller1/main.java:12:	UseUtilityClass:	UseUtilityClass: This utility class has a non-private constructor
