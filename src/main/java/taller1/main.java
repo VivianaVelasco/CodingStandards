@@ -14,27 +14,28 @@ public class main {
 	// CHECKSTYLE:OFF
 	public static void main(String[] args) {
 		// CHECKSTYLE:ON
-		String scan = null;
-		int num = 0;
-		int dia = 0;
-		int total = 0;
 
-		Scanner scanear = new Scanner(System.in);
 		try {
-			System.out.println("Escribe tu destino: ");
-			scan = scanear.nextLine();
+			Scanner scanear = new Scanner(System.in);
+			int total = 0;
+			System.out.println("Escribe tu destino(PARIS O NEW YORK) : ");
+			String scan = scanear.nextLine();
 			System.out.println("Escribe el numero de personas: ");
-			num = scanear.nextInt();
+			int num = scanear.nextInt();
 			System.out.println("Escribe el numero de dias: ");
-			dia = scanear.nextInt();
-			VacationPackage v = new VacationPackage(scan, num, dia);
-			System.out.print(scan + " " + num + " " + dia);
-			int validacion = v.validation(scan, num, dia);
+			int dia = scanear.nextInt();
+			System.out.println("Elija el numero de paquete deseado:");
+			System.out.println("1. All-Inclusive Package,  2. Adventure Activities Package,  3. Spa and Wellness Package, 4. Ningun paquete");
+			int paquete = scanear.nextInt();
+			VacationPackage v = new VacationPackage(scan, num, dia, paquete);
+			System.out.println(scan + " " + num + " " + dia + " ");
+				int validacion = v.validation(scan, num, dia);
 			System.out.println(validacion);
 			if (validacion >= 0) {
 				total += v.popular(scan);
 				total += v.travels(num);
 				total += v.time(dia, num);
+				total += v.personalizado(paquete, num);	
 			} else {
 				System.out.println("Ocurrio un error de datos");
 			}

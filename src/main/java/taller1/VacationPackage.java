@@ -19,17 +19,22 @@ public class VacationPackage {
 	 * basepackage for Package is $1000
 	 */
 	private int basepackage = 1000;
+	/**
+	 * paquete for each User
+	 */
+	private int paquete;
 
 	/**
 	 * @param destination
 	 * @param travelers
 	 * @param days
 	 */
-	public VacationPackage(String destination, int travelers, int days) {
+	public VacationPackage(String destination, int travelers, int days, int paquete) {
 		super();
 		this.destination = destination;
 		this.travelers = travelers;
 		this.days = days;
+		this.paquete = paquete;
 
 	}
 
@@ -73,13 +78,21 @@ public class VacationPackage {
 		this.basepackage = basepackage;
 	}
 
+	public int getPaquete() {
+		return paquete;
+	}
+
+	public void setPaquete(int paquete) {
+		this.paquete = paquete;
+	}
+
 	/**
 	 * @param destination
 	 * @param travelers
 	 * @param days
 	 */
 	public int validation(String destination, int travelers, int days) {
-		if (!(destination.equals("PARIS")) && !(destination.equals("NEW YORK"))) {
+		if (!("PARIS".equalsIgnoreCase(destination)) && !("NEW YORK".equalsIgnoreCase(destination))) {
 			return this.basepackage = -1;
 		} else if (travelers > 80) {
 			return this.basepackage = -2;
@@ -93,9 +106,9 @@ public class VacationPackage {
 	 * @param destination
 	 */
 	public int popular(String destination) {
-		if (destination.equalsIgnoreCase("PARIS")) {
+		if ("PARIS".equalsIgnoreCase(destination)) {
 			this.basepackage += 500;
-		} else if (destination.equalsIgnoreCase("NEW YORK")) {
+		} else if ("NEW YORK".equalsIgnoreCase(destination)) {
 			this.basepackage += 600;
 		} else {
 			this.basepackage = -1;
@@ -128,4 +141,19 @@ public class VacationPackage {
 		System.out.print(this.basepackage);
 		return this.basepackage;
 	}
+	
+	public int personalizado(int paquete, int travelers) {
+		if(paquete == 1) {
+			this.basepackage=this.basepackage+(travelers*200);
+		}else if(paquete == 2) {
+			this.basepackage=this.basepackage+(travelers*150);
+		}else if(paquete == 3) {
+			this.basepackage=this.basepackage+(travelers*100);
+		}else {
+			this.basepackage+=0;
+			System.out.println("No se ha agregado ningun paquete");
+		}
+		return this.basepackage;
+	}
+	
 }
